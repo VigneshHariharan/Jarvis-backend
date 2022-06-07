@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "outDir": "dist",
+    "strict": true,
+    "lib": ["esnext"],
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "*": ["*"],
+      "#resolvers/*": ["src/resolvers/*"],
+      "#typeDefs/*": ["src/typeDefs/*"],
+      "#user-prisma": ["prisma/index"]
+    }
+  },
+  "include": ["*"],
+  "exclude": ["node_modules/*"]
+}
