@@ -1,24 +1,48 @@
-import { gql } from 'apollo-server';
+import { gql } from "apollo-server";
 
+const userCommonProps = `
+    name: String
+    email: String
+    password: String
+    role: Roles
+`;
 
 export const typeDefs = gql`
-    type Users {
-        id: ID!
-        name: String
-        email: String
-    }
+  type Users {
+    id: ID!
+    ${userCommonProps}
+  }
 
-    input User {
-        name: String
-        email: String
-    }
+  enum Roles {
+    ENGINEER
+    MARKETER
+    DESIGNER
+    PRODUCT_MANAGER
+    DEVELOPER_ADVOCATE
+    CEO
+    CTO
+  }
 
-    type Query {
-        users: [Users]
-    }
+  input User {
+     ${userCommonProps}
+  }
 
-    type Mutation {
-        createUser(user: User): Users
-    }
+  type Query {
+    users: [Users]
+  }
 
+  input UserCommonData {
+      ${userCommonProps}
+  }
+
+  input UserUpdateData {
+    id: ID!
+    newUserData: UserCommonData
+  }
+
+  type Mutation {
+    createUser(user: User): Users
+    updateUser(data: UserUpdateData): Users
+    deleteUser(data: UserUpdateData): Users
+  }
 `;

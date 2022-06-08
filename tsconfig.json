@@ -10,9 +10,10 @@
       "*": ["*"],
       "#resolvers/*": ["src/resolvers/*"],
       "#typeDefs/*": ["src/typeDefs/*"],
-      "#user-prisma": ["prisma/index"]
+      "#user-prisma": ["prisma/index"],
+      "#utils/*": ["src/utils/*"]
     }
   },
-  "include": ["*"],
+  "include": ["*", "./src/**/*"],
   "exclude": ["node_modules/*"]
 }
